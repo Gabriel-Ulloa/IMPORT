@@ -30,4 +30,4 @@ main
 
 mv "dionaea" "cowrie" "adbhoney" "variables" "decompressor" /usr/local/bin/
 
-apt install -y tcpdump wireshark sqlite
+yum install -y tcpdump wireshark sqlite
