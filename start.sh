@@ -23,7 +23,7 @@ done
 main(){
   mkdir /home/import/sensor_catches
   week
-  #cat /usr/local/bin/rcron | tee -a /etc/crontab
+  cat /home/import/rcron | tee -a /etc/crontab
 }
 
 main

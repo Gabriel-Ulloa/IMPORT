@@ -6,4 +6,5 @@
 
 
 
-tar -xzf /home/sensor_catches/$(date +%A)_catches.tar.gz -C /home/week/$(date +%A)/
+tar -xzf /home/import/sensor_catches/$(date +%A)_catches.tar.gz -C /home/import/week/$(date +%A)/
+
