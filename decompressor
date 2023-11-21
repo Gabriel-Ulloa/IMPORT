@@ -1,0 +1,9 @@
+#!/bin/bash
+. variables
+. dionaea
+. cowrie
+. adbhoney
+
+
+
+tar -xzf /home/sensor_catches/$(date +%A)_catches.tar.gz -C /home/week/$(date +%A)/

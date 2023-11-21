@@ -1,0 +1,1 @@
+git clone https://github.com/Gabriel-Ulloa/SAMPLER.git && cd SAMPLER && ./start.sh

@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+DIR_CHECK="/home/tsec/CHECKS/check_"$(date +"%Y-%m-%d_%H-%M")/""
+PCAP="/home/tsec/PCAP/tcpdump.pcap"
+SAMPLES_DIR="samples"
+SAMPLE="sample_"$(date +"%Y-%m-%d_%H-%M")".pcap"
+SAMPLE_TEMP="temp.pcap"
+HONEYS="honeypots"
+TIME_0="time_0.txt"
+TIME_N="time_n.txt"
+IPS_FOUND="IPs.txt"
+IPS_TEMP="IPs.tmp"
+HASH_TEMP="HASH.tmp"
+HASHES="hashes.txt"
