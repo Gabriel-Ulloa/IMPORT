@@ -15,7 +15,7 @@ dias=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday")
 mkdir "/home/import/$semana"
 
 for dia in "${dias[@]}"; do
-    mkdir -p "/home/$semana/$dia"
+    mkdir -p "/home/import/$semana/$dia"
 done
 
 }
