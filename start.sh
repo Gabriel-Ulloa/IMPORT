@@ -22,6 +22,7 @@ done
 }
 
 main(){
+  echo "Making directories.."
   mkdir /home/import/sensor_catches
   week
   root
