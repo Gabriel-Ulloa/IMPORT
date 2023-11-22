@@ -1,12 +1,5 @@
 #!/bin/bash
 #
-myWHOAMI=$(whoami)
-if [ "$myWHOAMI" != "root" ]
-  then
-    sudo ./$0
-    exit
-fi
-
 week(){
 semana="week"
 
@@ -30,4 +23,4 @@ main
 
 mv "dionaea" "cowrie" "adbhoney" "variables" "decompressor" /usr/local/bin/
 
-yum install -y tcpdump wireshark sqlite
+#yum install -y tcpdump wireshark sqlite
