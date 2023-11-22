@@ -1,5 +1,13 @@
 #!/bin/bash
 #
+root(){
+  myWHOAMI=$(whoami)
+  if [ "$myWHOAMI" != "root" ]
+    then
+      sudo ./$0
+      exit
+  fi
+}
 week(){
 semana="week"
 
@@ -16,11 +24,13 @@ done
 main(){
   mkdir /home/import/sensor_catches
   week
+  root
+  mv "dionaea" "cowrie" "adbhoney" "variables" "decompressor" /usr/local/bin/
   cat /home/import/rcron | tee -a /etc/crontab
 }
 
 main
 
-mv "dionaea" "cowrie" "adbhoney" "variables" "decompressor" /usr/local/bin/
+
 
 #yum install -y tcpdump wireshark sqlite
