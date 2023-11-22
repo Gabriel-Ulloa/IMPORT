@@ -1,14 +1,9 @@
 #!/bin/bash
 #
-root(){
-  myWHOAMI=$(whoami)
-  if [ "$myWHOAMI" != "root" ]
-    then
-      sudo ./$0
-      exit
-  fi
-}
+mkdir /home/import/sensor_catches
+
 week(){
+  
 semana="week"
 
 dias=("Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday")
@@ -21,17 +16,18 @@ done
 
 }
 
-main(){
-  echo "Making directories.."
-  mkdir /home/import/sensor_catches
-  week
-  root
-  mv "dionaea" "cowrie" "adbhoney" "variables" "decompressor" /usr/local/bin/
-  cat /home/import/rcron | tee -a /etc/crontab
-}
+week
 
-main
+myWHOAMI=$(whoami)
+  if [ "$myWHOAMI" != "root" ]
+    then
+      sudo ./$0
+      exit
+  fi
 
-
-
-#yum install -y tcpdump wireshark sqlite
+mv "dionaea" "cowrie" "adbhoney" "decompressor" /usr/local/bin/
+cat /home/import/rcron | tee -a /etc/crontab
+echo "Done!"
+sleep 2
+clear
+exit
