@@ -2,12 +2,12 @@
 #
 function dionaea(){
     #
-    DIONAEA_JSON="/home/week/$(date +%A)/CATCHES/dionaea/log/dionaea.json"
-    DIONAEA_SQLITE="/home/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
+    DIONAEA_JSON="/home/import/week/$(date +%A)/CATCHES/dionaea/log/dionaea.json"
+    DIONAEA_SQLITE="/home/import/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
     DOWNLOADS="downloads.csv"
     CONNECTIONS="connections.csv"
     temp="/tmp/dionaea"
-    PCAP="/home/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     HASHES="hashes.txt"
     file_hashes="$temp/$HASHES"
     CONNECTION_LOCAL="connection.txt"
