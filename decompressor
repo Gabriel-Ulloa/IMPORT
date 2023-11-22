@@ -1,5 +1,5 @@
 #!/bin/bash
-. variables
+. /usr/local/bin/variables
 . dionaea
 . cowrie
 . adbhoney
