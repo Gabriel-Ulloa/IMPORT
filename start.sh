@@ -1,4 +1,4 @@
 #!/bin/bash
 #
 bash directories.sh
-bash crons.sh
+sudo bash crons.sh
