@@ -2,7 +2,7 @@
 
 function cowrie(){
     
-    COWRIE_JSON="/home/week/$(date +%A)/CATCHES/cowrie/log/cowrie.json"
+    COWRIE_JSON="/home/import/week/$(date +%A)/CATCHES/cowrie/log/cowrie.json"
     FILE_DOWNLOAD=".file_download"
     SHA_REGEX="[shasum]\+.[:]\+.[0-z]\+"
     IP_REGEX="[:-z]\+.[:]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+"
@@ -13,7 +13,7 @@ function cowrie(){
     file_hashes="$temp/$HASHES"
     h_temp=$(mktemp)
     IPS_FOUND="IPs.txt"
-    PCAP="/home/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     
     mkdir -p $temp
     grep -i $FILE_DOWNLOAD $COWRIE_JSON |grep -oe $SHA_REGEX |cut -c 10-74 | sort | uniq > $temp/$HASHES

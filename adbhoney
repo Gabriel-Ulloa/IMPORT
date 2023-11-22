@@ -2,8 +2,8 @@
 
 function ADBhoney(){
     
-    ADB_LOG="/home/week/$(date +%A)/CATCHES/adbhoney/log/adbhoney.log"
-    PCAP="/home/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    ADB_LOG="/home/import/week/$(date +%A)/CATCHES/adbhoney/log/adbhoney.log"
+    PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     HASHES="hashes.txt"
     IPS_FOUND="IPs.txt"
     temp="/tmp/adbhoney"
