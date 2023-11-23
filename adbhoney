@@ -8,6 +8,8 @@ function ADBhoney(){
     IPS_FOUND="IPs.txt"
     temp="/tmp/adbhoney"
     h_temp=$(mktemp)
+    ip_temp=$(mktemp)
+    ALL_IPs="$temp/All_IPs_adbhoney.txt"
 
     mkdir -p $temp
     grep -i ".file_download" $ADB_LOG |grep -oe "[shasum]\+.[:_ ]\+.[0-z]\+" |cut -c 11-74 | sort | uniq > $temp/$HASHES
@@ -30,6 +32,10 @@ function ADBhoney(){
 
     }
 
+     unifyig(){
+        cat $ip_temp |sort |uniq > $ALL_IPs 
+    }
+
     if [ ! -f "$temp/$HASHES" ]; then
     echo "El archivo de hashes no existe."
     exit 1
@@ -44,11 +50,14 @@ function ADBhoney(){
             cd $temp/$hash
             echo "$hash" >$h_temp
             grep -i ".session.connect" $ADB_LOG |grep -oe "[src_ip]\+.[:_ ]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+" |grep -v "172.18.0.2" |cut -d "'" -f 3 | sort | uniq > $IPS_FOUND
+            cat $IPS_FOUND >> $ip_temp
             filtro
             echo "Carpeta $hash creada."
         fi
 
     done < "$temp/$HASHES"
+
+    unifyig
 
 }
 

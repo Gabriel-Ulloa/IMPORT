@@ -1,5 +1,5 @@
 #!/bin/bash
 
-
+echo "decompressing catches..."
 tar -xzf /home/import/sensor_catches/$(date +%A)_catches.tar.gz -C /home/import/week/$(date +%A)/
 
