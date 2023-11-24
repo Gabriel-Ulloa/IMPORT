@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 mkdir /home/import/sensor_catches
+mkdir /home/import/combinator
+mkdir /home/import/export/
 
 week(){
 
