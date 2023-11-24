@@ -6,7 +6,7 @@ function ADBhoney(){
     PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     HASHES="hashes.txt"
     IPS_FOUND="IPs.txt"
-    temp="/tmp/adbhoney"
+    temp="/home/import/week/$(date +%A)/CATCHES/adbhoney/FILTER"
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_adbhoney.txt"
