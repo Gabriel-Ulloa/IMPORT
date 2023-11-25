@@ -11,7 +11,7 @@ clean(){
     cd .. && rm -rf IMPORTER/
 }
 
-if [ ! -f "/home/import/SecurityOnion/" ]; then
+if [ ! -d "/home/import/SecurityOnion/" ]; then
     echo "This script only works on SecurityOnion."
     clean
     exit 1
