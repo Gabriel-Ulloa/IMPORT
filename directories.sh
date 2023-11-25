@@ -52,4 +52,3 @@ week(){
 }
 
 week
-sudo bash installer.sh
