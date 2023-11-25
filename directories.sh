@@ -12,14 +12,14 @@ clean(){
 }
 
 if [ ! -d "/home/import/SecurityOnion/" ]; then
-    echo "------>This script only works on SecurityOnion<-------"
+    echo ">------>This script only works on SecurityOnion<-------<"
     clean
     exit 1
 fi
 
 # Check if the Deployment folder exists
 if [ -d "/home/import/Deployment/" ]; then
-    echo "------>This script has already been executed previously<------"
+    echo ">------>This script has already been executed previously<------<"
     clean
     exit 1
 fi
@@ -27,7 +27,7 @@ fi
     # Check if the rcron file exists
 if [ ! -f "/home/import/rcron" ]; then
     echo "The file /home/import/rcron does not exist."
-    echo "------>Make sure you have performed the correct deployment<------"
+    echo ">------>Make sure you have performed the correct deployment<------<"
     echo "Exiting the script."
     clean
     exit 1
