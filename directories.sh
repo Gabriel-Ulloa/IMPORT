@@ -11,6 +11,12 @@ clean(){
     cd .. && rm -rf IMPORTER/
 }
 
+if [ ! -f "/home/import/SecurityOnion/" ]; then
+    echo "This script only works on SecurityOnion."
+    clean
+    exit 1
+fi
+
 # Check if the Deployment folder exists
 if [ -d "/home/import/Deployment/" ]; then
     echo "This script has already been executed previously."
