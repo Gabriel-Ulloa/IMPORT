@@ -1,18 +1,22 @@
 #!/bin/bash
 
-function ADBhoney(){
+function adbhoney(){
     
     ADB_LOG="/home/import/week/$(date +%A)/CATCHES/adbhoney/log/adbhoney.log"
     PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
-    HASHES="hashes.txt"
+    HASHES="hashes_adbhoney.txt"
     IPS_FOUND="IPs.txt"
     temp="/home/import/week/$(date +%A)/CATCHES/adbhoney/FILTER"
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_adbhoney.txt"
+    combinator="/home/import/combinator"
+    AIPS="All_IPs.txt"
+    AHASHES="All_hashes.txt"
 
-    mkdir -p $temp
-    grep -i ".file_download" $ADB_LOG |grep -oe "[shasum]\+.[:_ ]\+.[0-z]\+" |cut -c 11-74 | sort | uniq > $temp/$HASHES
+    mkdir -p "$temp"
+    grep -i ".file_download" "$ADB_LOG" |grep -oe "[shasum]\+.[:_ ]\+.[0-z]\+" |cut -c 11-74 | sort | uniq > "$temp/$HASHES"
+    cat "$temp/$HASHES" >> "$combinator/$AHASHES"
 
     filtro(){
 
@@ -33,7 +37,8 @@ function ADBhoney(){
     }
 
      unifyig(){
-        cat $ip_temp |sort |uniq > $ALL_IPs 
+        cat "$ip_temp" |sort |uniq > "$ALL_IPs"
+        cat "$ALL_IPs" >> "$combinator/$AIPS" 
     }
 
     if [ ! -f "$temp/$HASHES" ]; then
@@ -47,10 +52,10 @@ function ADBhoney(){
             echo "La carpeta $hash ya existe."
         else
             mkdir -p "$temp/$hash"
-            cd $temp/$hash
-            echo "$hash" >$h_temp
-            grep -i ".session.connect" $ADB_LOG |grep -oe "[src_ip]\+.[:_ ]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+" |grep -v "172.18.0.2" |cut -d "'" -f 3 | sort | uniq > $IPS_FOUND
-            cat $IPS_FOUND >> $ip_temp
+            cd "$temp/$hash"
+            echo "$hash" > "$h_temp"
+            grep -i ".session.connect" $ADB_LOG |grep -oe "[src_ip]\+.[:_ ]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+" |grep -v "172.18.0.2" |cut -d "'" -f 3 | sort | uniq > "$IPS_FOUND"
+            cat "$IPS_FOUND" >> "$ip_temp"
             filtro
             echo "Carpeta $hash creada."
         fi
@@ -61,4 +66,3 @@ function ADBhoney(){
 
 }
 
-ADBhoney

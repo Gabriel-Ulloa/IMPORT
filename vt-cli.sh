@@ -1,3 +1,10 @@
+
+wget https://github.com/VirusTotal/vt-cli/releases/download/0.14.0/Linux64.zip &&unzip Linux64.zip && rm Linux64.zip
+
+/root/.vt.toml  
+
+
+
 function virus_total(){
     file="hashes.txt" 
     counter=0

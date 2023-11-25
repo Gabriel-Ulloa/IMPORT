@@ -6,15 +6,19 @@ function dionaea(){
     DIONAEA_SQLITE="/home/import/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
     DOWNLOADS="downloads.csv"
     CONNECTIONS="connections.csv"
-    temp="/tmp/dionaea"
+    temp="/home/import/week/$(date +%A)/CATCHES/dionaea/FILTER"
     PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
-    HASHES="hashes.txt"
+    HASHES="hashes_dionaea.txt"
     file_hashes="$temp/$HASHES"
     CONNECTION_LOCAL="connection.txt"
     IPS_FOUND="IPs.txt"
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_dionaea.txt"
+    combinator="/home/import/combinator"
+    AIPS="All_IPs.txt"
+    AHASHES="All_hashes.txt"
+
 
     address_finder(){
         
@@ -45,7 +49,8 @@ function dionaea(){
     }
 
     unifyig(){
-        cat $ip_temp |sort |uniq > $ALL_IPs 
+        cat $ip_temp |sort |uniq > $ALL_IPs
+        cat $ALL_IPs >> "$combinator/$AIPS"
     }
 
     main(){
@@ -54,6 +59,7 @@ function dionaea(){
     sqlite3 -header -csv $DIONAEA_SQLITE "SELECT * FROM downloads" > $temp/$DOWNLOADS
     sqlite3 -header -csv $DIONAEA_SQLITE "SELECT * FROM connections" > $temp/$CONNECTIONS
     cut -d ',' -f 4 $temp/$DOWNLOADS |sed '1d' |sort | uniq > $temp/$HASHES
+    cat $temp/$HASHES >> $combinator/$AHASHES
 
     if [ ! -f "$file_hashes" ]; then
     echo "El archivo de hashes no existe."
@@ -85,4 +91,4 @@ main
 
 }
 
-dionaea
+

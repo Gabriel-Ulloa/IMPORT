@@ -35,24 +35,13 @@ rconf(){
 
 }
 
-upload(){
     
-    compressed="/home/import/export/"
-    rcname="$(cat /usr/local/bin/rcname)"
-    dircloud="$(cat /usr/local/bin/dircloud)"
-
-    rclone copy "$compressed" "${rcname}:${dircloud}"
-
-}
-    
-main(){
+main_rc(){
     
     rcinstall
     namex
     rconf
-    upload
     echo "Done!"
 
 }
 
-main

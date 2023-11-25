@@ -9,16 +9,21 @@ function cowrie(){
     HIP_REGEX="[0-9]\+.[0-9]\+.[0-9]\+.[0-9]\+"
     TIME_REGEX="[a-z]\+.[:]\+.[0-9]\+.[-]\+.[0-9]\+.[0-Z]\+"
     temp="/home/import/week/$(date +%A)/CATCHES/cowrie/FILTER"
-    HASHES="hashes.txt"
+    HASHES="hashes_cowrie.txt"
     file_hashes="$temp/$HASHES"
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     IPS_FOUND="IPs.txt"
     ALL_IPs="$temp/All_IPs_cowrie.txt"
     PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    combinator="/home/import/combinator"
+    AIPS="All_IPs.txt"
+    AHASHES="All_hashes.txt"
+
     
-    mkdir -p $temp
-    grep -i $FILE_DOWNLOAD $COWRIE_JSON |grep -oe $SHA_REGEX |cut -c 10-74 |sort | uniq > $temp/$HASHES
+    mkdir -p "$temp"
+    grep -i "$FILE_DOWNLOAD" "$COWRIE_JSON" |grep -oe $SHA_REGEX |cut -c 10-74 |sort | uniq > "$temp/$HASHES"
+    cat "$temp/$HASHES" >> "$combinator/$AHASHES"
 
     filtro(){
 
@@ -39,7 +44,8 @@ function cowrie(){
     }
 
      unifyig(){
-        cat $ip_temp |sort |uniq > $ALL_IPs 
+        cat "$ip_temp" |sort |uniq > "$ALL_IPs"
+        cat "$ALL_IPs" >> "$combinator/$AIPS" 
     }
 
     if [ ! -f "$file_hashes" ]; then
@@ -53,10 +59,10 @@ function cowrie(){
             echo "La carpeta $hash ya existe."
         else
             mkdir -p "$temp/$hash"
-            cd $temp/$hash
-            echo "$hash" >$h_temp
-            grep $hash $COWRIE_JSON |grep -oe $IP_REGEX |grep -oe $HIP_REGEX |sort | uniq > $IPS_FOUND
-            cat $IPS_FOUND >> $ip_temp
+            cd "$temp/$hash"
+            echo "$hash" > "$h_temp"
+            grep "$hash" "$COWRIE_JSON" |grep -oe $IP_REGEX |grep -oe $HIP_REGEX |sort | uniq > "$IPS_FOUND"
+            cat "$IPS_FOUND" >> "$ip_temp"
             filtro
             echo "Carpeta $hash creada."
         fi
@@ -67,4 +73,3 @@ function cowrie(){
 
 }
 
-cowrie
