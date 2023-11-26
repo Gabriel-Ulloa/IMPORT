@@ -4,8 +4,9 @@ bash directories.sh
 exit_status=$?
 
 if [ $exit_status -eq 0 ]; then
-    echo "directories.sh executed successfully, proceeding with installer.sh."
+    echo "directories.sh executed successfully."
     clear
+    echo "Proceeding with the installation"
     sudo bash installer.sh
 else
     echo "directories.sh failed to execute, exiting."
