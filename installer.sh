@@ -10,7 +10,7 @@ fi
 settings(){
 
     deploy="/home/import/Deployment/"
-    scripts=""dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt""
+    scripts='"dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt"'
     bin="/usr/local/bin/"
     rcron="/home/import/.rcron"
     vX="VxAPI/"
@@ -23,7 +23,7 @@ settings(){
 }
 
 
-cd /home/import/IMPORTER
+#cd /home/import/IMPORTER
 settings
 
 
