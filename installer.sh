@@ -18,12 +18,12 @@ settings(){
 
 }
 
-
 hybrid_API(){
     
     FILE_CONFIG="/home/import/Deployment/VxAPI/config.py"
-
-    # Pedir al usuario que ingrese la api_key y la api_secret
+    
+    sleep 1
+    clear
     echo "::::Hybrid Analysis Configuration::::"
     read -p "API Key: " api_key
     read -p "API Secret: " api_secret
@@ -38,24 +38,9 @@ hybrid_API(){
 
 virus_API(){
 
-    vt_toml="/root/.vt.toml"
-
-    function vt_init(){
-        /usr/local/bin/vt init
-    }
-    #
-    while true
-        do
-            if [ -f "$vt_toml" ]; then
-            echo "OK"; sleep 2
-            break         
-            else
-            echo "Enter a valid API key"; sleep 2; clear; vt_init
-            fi
-        done
+    /usr/local/bin/vt init
 
 }
-
 
 main(){
 
