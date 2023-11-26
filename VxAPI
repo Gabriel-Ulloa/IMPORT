@@ -1,8 +1,0 @@
-curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-python3 get-pip.py
-pip3 install colorama
-
-git clone https://github.com/PayloadSecurity/VxAPI.git
-
-
-python vxapi.py search_hash 64bb708b31b4b043018457c1098465ea83da7d6408c7029b2f68c333fc25891c
