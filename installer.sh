@@ -37,7 +37,8 @@ hybrid_API(){
 }
 
 virus_API(){
-
+    
+    clear
     /usr/local/bin/vt init
 
 }
