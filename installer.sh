@@ -13,6 +13,6 @@ fi
 
 myAPI
 settings
-main_rc
+#main_rc
 
 #rm -rf /home/import/IMPORTER
