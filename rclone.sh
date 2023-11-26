@@ -3,6 +3,15 @@
 rcinstall(){
 
     sudo -v ; curl https://rclone.org/install.sh | sudo bash
+    clear
+    banner_text="Configuring Cloud"
+
+    echo "**********************************************"
+    echo "*                                            *"
+    echo "*     $banner_text       *"
+    echo "*                                            *"
+    echo "**********************************************"
+
     rclone config
 
 }
@@ -17,6 +26,7 @@ namex(){
 
 rconf(){
     
+    clear
     banner_text="Cloud Folder for Saving Captures"
 
     echo "**********************************************"
@@ -34,7 +44,6 @@ rconf(){
     echo "${dir_name}" > /usr/local/bin/dircloud
 
 }
-
     
 main_rc(){
     
