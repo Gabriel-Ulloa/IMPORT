@@ -25,8 +25,8 @@ if [ -d "/home/import/Deployment/" ]; then
 fi
 
     # Check if the rcron file exists
-if [ ! -f "/home/import/rcron" ]; then
-    echo "The file /home/import/rcron does not exist."
+if [ ! -f "/home/import/.rcron" ]; then
+    echo "The file rcron does not exist."
     echo "------>Make sure you have performed the correct deployment<------"
     echo "Exiting the script."
     clean
