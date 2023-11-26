@@ -6,29 +6,14 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
-
-settings(){
-
-    deploy="/home/import/Deployment/"
-    scripts=("dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt")
-    bin="/usr/local/bin/"
-    rcron="/home/import/.rcron"
-    vX="VxAPI/"
-    cront="/etc/crontab"
-
-    mv "$scripts" "$bin"
-    mv "$vX" "$deploy"
-    cat "$rcron" | tee -a "$cront"
-    rm -rf "$rcron"
-}
-
-
-#cd /home/import/IMPORTER
-settings
+mv "dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt" /usr/local/bin/
+mv VxAPI/ /home/import/Deployment/
+cat /home/import/.rcron | tee -a /etc/crontab
+rm -rf /home/import/.rcron
 
 
 
-. ./rclone.sh
+#. ./rclone.sh
 
 #myAPI
 #main_rc
