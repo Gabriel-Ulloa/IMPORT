@@ -2,12 +2,12 @@
 #
 function dionaea(){
     #
-    DIONAEA_JSON="/home/import/week/$(date +%A)/CATCHES/dionaea/log/dionaea.json"
-    DIONAEA_SQLITE="/home/import/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
+    DIONAEA_JSON="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/log/dionaea.json"
+    DIONAEA_SQLITE="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
     DOWNLOADS="downloads.csv"
     CONNECTIONS="connections.csv"
-    temp="/home/import/week/$(date +%A)/CATCHES/dionaea/FILTER"
-    PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    temp="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/FILTER"
+    PCAP="/home/import/Deployment/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     HASHES="hashes_dionaea.txt"
     file_hashes="$temp/$HASHES"
     CONNECTION_LOCAL="connection.txt"
@@ -15,7 +15,7 @@ function dionaea(){
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_dionaea.txt"
-    combinator="/home/import/combinator"
+    combinator="/home/import/Deployment/combinator"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 

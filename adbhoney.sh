@@ -2,15 +2,15 @@
 
 function adbhoney(){
     
-    ADB_LOG="/home/import/week/$(date +%A)/CATCHES/adbhoney/log/adbhoney.log"
-    PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    ADB_LOG="/home/import/Deployment/week/$(date +%A)/CATCHES/adbhoney/log/adbhoney.log"
+    PCAP="/home/import/Deployment/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     HASHES="hashes_adbhoney.txt"
     IPS_FOUND="IPs.txt"
-    temp="/home/import/week/$(date +%A)/CATCHES/adbhoney/FILTER"
+    temp="/home/import/Deployment/week/$(date +%A)/CATCHES/adbhoney/FILTER"
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_adbhoney.txt"
-    combinator="/home/import/combinator"
+    combinator="/home/import/Deployment/combinator"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 

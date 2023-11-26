@@ -2,21 +2,21 @@
 
 function cowrie(){
     
-    COWRIE_JSON="/home/import/week/$(date +%A)/CATCHES/cowrie/log/cowrie.json"
+    COWRIE_JSON="/home/import/Deployment/week/$(date +%A)/CATCHES/cowrie/log/cowrie.json"
     FILE_DOWNLOAD=".file_download"
     SHA_REGEX="[shasum]\+.[:]\+.[0-z]\+"
     IP_REGEX="[:-z]\+.[:]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+"
     HIP_REGEX="[0-9]\+.[0-9]\+.[0-9]\+.[0-9]\+"
     TIME_REGEX="[a-z]\+.[:]\+.[0-9]\+.[-]\+.[0-9]\+.[0-Z]\+"
-    temp="/home/import/week/$(date +%A)/CATCHES/cowrie/FILTER"
+    temp="/home/import/Deployment/week/$(date +%A)/CATCHES/cowrie/FILTER"
     HASHES="hashes_cowrie.txt"
     file_hashes="$temp/$HASHES"
     h_temp=$(mktemp)
     ip_temp=$(mktemp)
     IPS_FOUND="IPs.txt"
     ALL_IPs="$temp/All_IPs_cowrie.txt"
-    PCAP="/home/import/week/$(date +%A)/CATCHES/$(date +%A).pcap"
-    combinator="/home/import/combinator"
+    PCAP="/home/import/Deployment/week/$(date +%A)/CATCHES/$(date +%A).pcap"
+    combinator="/home/import/Deployment/combinator"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
