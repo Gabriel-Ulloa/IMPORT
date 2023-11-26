@@ -8,7 +8,7 @@ AIPS="All_IPs.txt"
 AHASHES="All_hashes.txt"
 
 clean(){
-    cd .. && rm -rf IMPORTER/ && cd ..
+    cd .. && rm -rf IMPORTER/
 }
 
 if [ ! -d "/home/import/SecurityOnion/" ]; then

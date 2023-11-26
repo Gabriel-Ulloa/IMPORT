@@ -1,7 +1,14 @@
 settings(){
 
-    echo "Setting up crons..."
-    mv "dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" /usr/local/bin/
-    cat /home/import/rcron | tee -a /etc/crontab
-    rm -rf /home/import/rcron
+    deploy="/home/import/Deployment/"
+    scripts=""dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt""
+    bin="/usr/local/bin/"
+    rcron="/home/import/rcron"
+    vX="VxAPI/"
+    cront="/etc/crontab"
+
+    mv "$scripts" "$bin"
+    mv "$vX" "$deploy"
+    cat "$rcron" | tee -a "$cront"
+    rm -rf "$rcron"
 }
