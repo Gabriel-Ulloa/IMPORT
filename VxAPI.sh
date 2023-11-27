@@ -15,6 +15,4 @@ function hybrid_analysis(){
     done < "$file"
 }
 
-#python vxapi.py search_hash
-
-#UNIQ_HASHES.txt
+hybrid_analysis
