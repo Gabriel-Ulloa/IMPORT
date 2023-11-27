@@ -18,21 +18,6 @@ settings(){
 
 }
 
-function myAPI(){
-
-    myVT="https://github.com/VirusTotal/vt-cli/releases/download/0.14.0/Linux64.zip"
-    myVx="https://github.com/PayloadSecurity/VxAPI.git"
-    pip_py="https://bootstrap.pypa.io/get-pip.py"
-    
-
-    wget "$myVT" && unzip Linux64.zip 
-    git clone "$myVx"
-    curl $pip_py -o "get-pip.py"
-    python3 get-pip.py
-    pip3 install colorama
-
-}
-
 hybrid_API(){
     
     FILE_CONFIG="/home/import/Deployment/VxAPI/config.py"
@@ -61,8 +46,6 @@ virus_API(){
 main(){
 
     settings
-    export -f function myAPI
-    sudo -u import bash -c function myAPI
     hybrid_API
     virus_API
     main_rc
