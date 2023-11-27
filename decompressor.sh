@@ -54,12 +54,31 @@ function zipper(){
     pass="infected"
 
     zip -r -P "$pass" "$protected" "$binaries"
+    
+    sleep 3
+
+}
+
+function compressor(){
+
+    capture="/home/import/Deployment/CAPTURE"
+    compressed="/home/import/Deployment/export/captures_"$(date +"%Y-%m-%d")".tar.gz"
+
+    tar -cv $capture | gzip > $compressed
+}
+
+function upload(){
+
+    rcname="$(cat /usr/local/bin/rcname)"
+    rcdir="$(cat /usr/local/bin/dircloud)"
+    captures="/home/import/Deployment/export/*"
+
+    rclone copy $captures "${rcname}:${rcdir}"
 
 }
 
 main(){
 
-    #date_folder
     decompressing
     dionaea 
     cowrie 
@@ -69,10 +88,10 @@ main(){
     virus_total
     h_analysis
     zipper
-
-    #upload
+    compressor
+    upload
     echo "OK"
-    sleep 5
+    sleep 3
     
 
 }
