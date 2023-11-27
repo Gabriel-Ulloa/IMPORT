@@ -35,7 +35,7 @@ my_folders(){
              "/home/import/Deployment/CAPTURE/ALL_LOGS" \
              "/home/import/Deployment/sensor_catches" \
              "/home/import/Deployment/combinator" \
-             "/home/import/Deployment/export" 
+             "/home/import/Deployment/export"
 
 }
 
