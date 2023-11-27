@@ -1,14 +1,5 @@
 #!/bin/bash
 #
-catches="/home/import/Deployment/sensor_catches"
-combinator="/home/import/Deployment/combinator"
-export="/home/import/Deployment/export"
-captures="/home/import/Deployment/CAPTURE"
-
-AIPS="All_IPs.txt"
-AHASHES="All_hashes.txt"
-BINARIES="ALL_BINARIES"
-
 clean(){
     cd .. && rm -rf IMPORTER/
 }
@@ -35,9 +26,18 @@ if [ ! -f "/home/import/.rcron" ]; then
     exit 1
 fi
 
-mkdir -p "$catches" "$captures" "$export" "$combinator/$BINARIES"
-touch "$combinator/$AIPS" "$combinator/$AHASHES"
+some_folder(){
 
+    mkdir -p "/home/import/Deployment/CAPTURE/FILTERED_PCAPS" \
+             "/home/import/Deployment/CAPTURE/ALL_BINARIES" \
+             "/home/import/Deployment/CAPTURE/VT_HASHES" \
+             "/home/import/Deployment/CAPTURE/VX_HASHES" \
+             "/home/import/Deployment/CAPTURE/ALL_LOGS" \
+             "/home/import/Deployment/sensor_catches" \
+             "/home/import/Deployment/combinator" \
+             "/home/import/Deployment/export" 
+
+}
 
 week(){
 
@@ -59,7 +59,6 @@ myAPI(){
     myVx="https://github.com/PayloadSecurity/VxAPI.git"
     pip_py="https://bootstrap.pypa.io/get-pip.py"
     
-
     wget "$myVT" && unzip Linux64.zip 
     git clone "$myVx"
     curl $pip_py -o "get-pip.py"

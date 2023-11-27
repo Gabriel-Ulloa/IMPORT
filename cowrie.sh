@@ -18,7 +18,7 @@ function cowrie(){
     PCAP="/home/import/Deployment/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     combinator="/home/import/Deployment/combinator"
     DOWNLOADS="/home/import/Deployment/week/$(date +%A)/CATCHES/cowrie/downloads/*"
-    MALWARE="/home/import/Deployment/CAPTURE/ALL_MALWARES/"
+    MALWARE="/home/import/Deployment/CAPTURE/ALL_BINARIES/"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 

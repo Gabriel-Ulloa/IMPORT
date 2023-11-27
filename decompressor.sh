@@ -9,23 +9,18 @@
 
 decompressing{}(
     
+    AIPS="All_IPs.txt"
+    AHASHES="All_hashes.txt"
+
     catches="/home/import/Deployment/sensor_catches/$(date +%A)_catches.tar.gz"
     day="/home/import/Deployment/week/$(date +%A)/"
+    combinator="/home/import/Deployment/combinator"
 
     echo "decompressing catches..."
     tar -xzf "$catches" -C "$day"
     sleep 3
+    touch "$combinator/$AIPS" "$combinator/$AHASHES"
 )
-
-date_folder(){
-
-    mkdir -p "/home/import/Deployment/CAPTURE/VT_HASHES" \
-             "/home/import/Deployment/CAPTURE/VX_HASHES" \
-             "/home/import/Deployment/CAPTURE/ALL_MALWARES" \
-             "/home/import/Deployment/CAPTURE/ALL_LOGS" \
-             "/home/import/Deployment/CAPTURE/FILTERED_PCAPS" 
-             
-}
 
 
 uniq_data(){
@@ -50,7 +45,7 @@ uniq_data(){
 
 main(){
 
-    date_folder
+    #date_folder
     decompressing
     dionaea 
     cowrie 
@@ -58,6 +53,7 @@ main(){
     uniq_data
     filter_IP
     virus_total
+    hybrid_analysis
 
     #upload
     echo "OK"
