@@ -26,7 +26,7 @@ if [ ! -f "/home/import/.rcron" ]; then
     exit 1
 fi
 
-some_folder(){
+my_folders(){
 
     mkdir -p "/home/import/Deployment/CAPTURE/FILTERED_PCAPS" \
              "/home/import/Deployment/CAPTURE/ALL_BINARIES" \
@@ -67,6 +67,13 @@ myAPI(){
 
 }
 
+main(){
 
-week
-myAPI
+    my_folders
+    week
+    myAPI
+
+}
+
+main
+
