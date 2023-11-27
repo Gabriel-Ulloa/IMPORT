@@ -7,8 +7,8 @@
 . ./upload.sh
 
 
-decompressing{}(
-    
+decompressing(){
+
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
@@ -20,8 +20,8 @@ decompressing{}(
     tar -xzf "$catches" -C "$day"
     sleep 3
     touch "$combinator/$AIPS" "$combinator/$AHASHES"
-)
 
+}
 
 uniq_data(){
 
@@ -52,8 +52,8 @@ main(){
     adbhoney
     uniq_data
     filter_IP
-    virus_total
-    hybrid_analysis
+    #virus_total
+    #hybrid_analysis
 
     #upload
     echo "OK"

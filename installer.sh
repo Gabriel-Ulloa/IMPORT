@@ -10,7 +10,7 @@ fi
 
 settings(){
 
-    mv "dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt" "upload.sh" /usr/local/bin/
+    mv "dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt-cli.sh" "filter.sh" "vt" "upload.sh" /usr/local/bin/
     mv VxAPI/ /home/import/Deployment/
     mv "config.py" /home/import/Deployment/VxAPI/ 
     cat /home/import/.rcron | tee -a /etc/crontab
