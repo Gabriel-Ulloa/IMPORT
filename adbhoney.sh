@@ -11,17 +11,21 @@ function adbhoney(){
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_adbhoney.txt"
     combinator="/home/import/Deployment/combinator"
+    DOWNLOADS="/home/import/Deployment/week/$(date +%A)/CATCHES/adbhoney/downloads/*"
+    MALWARE="/home/import/Deployment/CAPTURE/ALL_MALWARES/"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
     mkdir -p "$temp"
     grep -i ".file_download" "$ADB_LOG" |grep -oe "[shasum]\+.[:_ ]\+.[0-z]\+" |cut -c 11-74 | sort | uniq > "$temp/$HASHES"
     cat "$temp/$HASHES" >> "$combinator/$AHASHES"
+    cp $ADB_LOG $combinator
+    cp $DOWNLOADS $MALWARE
 
     filtro(){
 
         IP_FILE="$temp/$(cat $h_temp)/$IPS_FOUND"
-        OUTPUT_PCAP="$temp/$hash/filtered.pcap"
+        #OUTPUT_PCAP="$temp/$hash/filtered.pcap"
         
         FILTER=""
         while IFS= read -r IP; do
@@ -32,7 +36,7 @@ function adbhoney(){
             fi
         done < "$IP_FILE"
 
-        tcpdump -r "$PCAP" -w "$OUTPUT_PCAP" "$FILTER"
+        #tcpdump -r "$PCAP" -w "$OUTPUT_PCAP" "$FILTER"
 
     }
 

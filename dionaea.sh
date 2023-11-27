@@ -6,6 +6,7 @@ function dionaea(){
     DIONAEA_SQLITE="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
     DOWNLOADS="downloads.csv"
     CONNECTIONS="connections.csv"
+    BINARIES="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/binaries/*"
     temp="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/FILTER"
     PCAP="/home/import/Deployment/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     HASHES="hashes_dionaea.txt"
@@ -16,6 +17,7 @@ function dionaea(){
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_dionaea.txt"
     combinator="/home/import/Deployment/combinator"
+    MALWARE="/home/import/Deployment/CAPTURE/ALL_MALWARES"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
@@ -32,7 +34,7 @@ function dionaea(){
     filtro(){
 
         IP_FILE="$temp/$(cat $h_temp)/$IPS_FOUND"
-        OUTPUT_PCAP="$temp/$hash/filtered.pcap"
+        #OUTPUT_PCAP="$temp/$hash/filtered.pcap"
         
         FILTER=""
         while IFS= read -r IP; do
@@ -43,7 +45,7 @@ function dionaea(){
             fi
         done < "$IP_FILE"
 
-        tcpdump -r "$PCAP" -w "$OUTPUT_PCAP" "$FILTER"
+        #tcpdump -r "$PCAP" -w "$OUTPUT_PCAP" "$FILTER"
         cat $IP_FILE |sort | uniq >> $ip_temp
 
     }
@@ -60,6 +62,9 @@ function dionaea(){
     sqlite3 -header -csv $DIONAEA_SQLITE "SELECT * FROM connections" > $temp/$CONNECTIONS
     cut -d ',' -f 4 $temp/$DOWNLOADS |sed '1d' |sort | uniq > $temp/$HASHES
     cat $temp/$HASHES >> $combinator/$AHASHES
+    cp $DIONAEA_JSON $DIONAEA_SQLITE $combinator
+    cp $BINARIES $MALWARE
+
 
     if [ ! -f "$file_hashes" ]; then
     echo "El archivo de hashes no existe."

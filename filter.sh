@@ -1,21 +1,23 @@
 #!/bin/bash
+filter_IP(){
 
-# Ruta al archivo con la lista de IPs
-ARCHIVO_IPS="/ruta/al/archivo/ips.txt"
+    IPS_FILE="/home/import/Deployment/CAPTURE/UNIQ_IPS.txt"
+    N_PCAP="/home/import/Deployment/CAPTURE/capture.pcap"
+    FILTERED="/home/import/Deployment/CAPTURE/FILTERED_PCAPS/"
+    
 
-# Ruta al archivo pcap original
-ARCHIVO_PCAP_ORIGINAL="/ruta/al/archivo/original.pcap"
+    # Verifica si los archivos existen
+    if [ ! -f "$IPS_FILE" ] || [ ! -f "$N_PCAP" ]; then
+        echo "The IP file or the original .pcap file does not exist."
+        exit 1
+    fi
 
-# Verifica si los archivos existen
-if [ ! -f "$ARCHIVO_IPS" ] || [ ! -f "$ARCHIVO_PCAP_ORIGINAL" ]; then
-    echo "El archivo de IPs o el archivo .pcap original no existen."
-    exit 1
-fi
+    # Leer cada IP del archivo y filtrar el tráfico correspondiente
+    while IFS= read -r ip; do
+        echo "Filtering traffic for the IP: $ip"
+        tcpdump -r "$N_PCAP" "ip host $ip" -w "$FILTERED/${ip}.pcap"
+    done < "$IPS_FILE"
 
-# Leer cada IP del archivo y filtrar el tráfico correspondiente
-while IFS= read -r ip; do
-    echo "Filtrando tráfico para la IP: $ip"
-    tcpdump -r "$ARCHIVO_PCAP_ORIGINAL" "ip host $ip" -w "${ip}.pcap"
-done < "$ARCHIVO_IPS"
+    echo "Filtering completed"
 
-echo "Filtrado completado."
+}

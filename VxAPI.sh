@@ -1,4 +1,4 @@
-function virus_total(){
+function hybrid_analysis(){
     file="/home/import/Deployment/CAPTURE/UNIQ_HASHES.txt"
     VT_HASHES="/home/import/Deployment/CAPTURE/VT_HASHES"
 
