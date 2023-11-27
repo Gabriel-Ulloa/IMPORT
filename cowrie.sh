@@ -19,6 +19,7 @@ function cowrie(){
     combinator="/home/import/Deployment/combinator"
     DOWNLOADS="/home/import/Deployment/week/$(date +%A)/CATCHES/cowrie/downloads/*"
     MALWARE="/home/import/Deployment/CAPTURE/ALL_BINARIES/"
+    LOGS="/home/import/Deployment/CAPTURE/ALL_LOGS"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
@@ -26,7 +27,7 @@ function cowrie(){
     mkdir -p "$temp"
     grep -i "$FILE_DOWNLOAD" "$COWRIE_JSON" |grep -oe $SHA_REGEX |cut -c 10-74 |sort | uniq > "$temp/$HASHES"
     cat "$temp/$HASHES" >> "$combinator/$AHASHES"
-    cp $COWRIE_JSON $combinator
+    cp $COWRIE_JSON $LOGS
     cp $DOWNLOADS $MALWARE
 
     filtro(){
@@ -77,3 +78,4 @@ function cowrie(){
 
 }
 
+cowrie

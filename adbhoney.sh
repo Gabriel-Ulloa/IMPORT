@@ -13,13 +13,14 @@ function adbhoney(){
     combinator="/home/import/Deployment/combinator"
     DOWNLOADS="/home/import/Deployment/week/$(date +%A)/CATCHES/adbhoney/downloads/*"
     MALWARE="/home/import/Deployment/CAPTURE/ALL_BINARIES/"
+    LOGS="/home/import/Deployment/CAPTURE/ALL_LOGS"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
     mkdir -p "$temp"
     grep -i ".file_download" "$ADB_LOG" |grep -oe "[shasum]\+.[:_ ]\+.[0-z]\+" |cut -c 11-74 | sort | uniq > "$temp/$HASHES"
     cat "$temp/$HASHES" >> "$combinator/$AHASHES"
-    cp $ADB_LOG $combinator
+    cp $ADB_LOG $LOGS
     cp $DOWNLOADS $MALWARE
 
     filtro(){
@@ -70,3 +71,4 @@ function adbhoney(){
 
 }
 
+adbhoney

@@ -18,6 +18,7 @@ function dionaea(){
     ALL_IPs="$temp/All_IPs_dionaea.txt"
     combinator="/home/import/Deployment/combinator"
     MALWARE="/home/import/Deployment/CAPTURE/ALL_BINARIES/"
+    LOGS="/home/import/Deployment/CAPTURE/ALL_LOGS"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"
 
@@ -62,7 +63,7 @@ function dionaea(){
     sqlite3 -header -csv $DIONAEA_SQLITE "SELECT * FROM connections" > $temp/$CONNECTIONS
     cut -d ',' -f 4 $temp/$DOWNLOADS |sed '1d' |sort | uniq > $temp/$HASHES
     cat $temp/$HASHES >> $combinator/$AHASHES
-    cp $DIONAEA_JSON $DIONAEA_SQLITE $combinator
+    cp $DIONAEA_JSON $DIONAEA_SQLITE $LOGS
     cp $BINARIES $MALWARE
 
 
