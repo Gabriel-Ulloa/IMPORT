@@ -44,15 +44,19 @@ virus_API(){
 
 }
 
+clean(){
+    cd .. && rm -rf IMPORTER/
+}
+
 main(){
 
     settings
     hybrid_API
     virus_API
     main_rc
+    clean
 
 }
 
 main
 
-#rm -rf /home/import/IMPORTER

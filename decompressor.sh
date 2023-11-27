@@ -60,12 +60,16 @@ function zipper(){
 }
 
 function compressor(){
+    capture="CAPTURE"
+    parent_dir="/home/import/Deployment"
+    compressed="/home/import/Deployment/export/captures_$(date +"%Y-%m-%d").tar.gz"
 
-    capture="/home/import/Deployment/CAPTURE"
-    compressed="/home/import/Deployment/export/captures_"$(date +"%Y-%m-%d")".tar.gz"
+    cd "$parent_dir"
 
-    tar -cv $capture | gzip > $compressed
+    tar -cvz "$capture" > "$compressed"
+    cd -
 }
+
 
 function upload(){
 
@@ -74,6 +78,19 @@ function upload(){
     captures="/home/import/Deployment/export/*"
 
     rclone copy $captures "${rcname}:${rcdir}"
+
+}
+
+cleaner(){
+
+    rm -rf /home/import/Deployment/CAPTURE/* \
+           /home/import/Deployment/combinator/* \
+           /home/import/Deployment/export/*
+
+    mkdir -p "/home/import/Deployment/CAPTURE/FILTERED_PCAPS" \
+             "/home/import/Deployment/CAPTURE/VT_HASHES" \
+             "/home/import/Deployment/CAPTURE/VX_HASHES" \
+             "/home/import/Deployment/CAPTURE/ALL_LOGS"
 
 }
 
@@ -90,8 +107,8 @@ main(){
     zipper
     compressor
     upload
-    echo "OK"
     sleep 3
+    cleaner
     
 
 }
