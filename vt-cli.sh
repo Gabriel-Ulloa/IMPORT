@@ -1,5 +1,5 @@
 function virus_total(){
-    file="/home/import/Deployment/CAPTURE/UNIQ_HASHES.txt"
+    file="/home/import/Deployment/CAPTURE/uniq_hashes.txt"
     VT_HASHES="/home/import/Deployment/CAPTURE/VT_HASHES"
 
     counter=0
