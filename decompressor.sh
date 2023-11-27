@@ -41,7 +41,21 @@ uniq_data(){
 
 }
 
+function h_analysis(){
 
+    su - import  -c /home/import/Deployment/VxAPI/VxAPI.sh
+
+}
+
+function zipper(){
+
+    binaries="/home/import/Deployment/combinator/ALL_BINARIES"
+    protected="/home/import/Deployment/CAPTURE/binaries.zip"
+    pass="infected"
+
+    zip -r -P "$pass" "$protected" "$binaries"
+
+}
 
 main(){
 
@@ -52,8 +66,9 @@ main(){
     adbhoney
     uniq_data
     filter_IP
-    #virus_total
-    #hybrid_analysis
+    virus_total
+    h_analysis
+    zipper
 
     #upload
     echo "OK"

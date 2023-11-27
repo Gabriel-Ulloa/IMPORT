@@ -17,7 +17,7 @@ function dionaea(){
     ip_temp=$(mktemp)
     ALL_IPs="$temp/All_IPs_dionaea.txt"
     combinator="/home/import/Deployment/combinator"
-    MALWARE="/home/import/Deployment/CAPTURE/ALL_BINARIES/"
+    MALWARE="/home/import/Deployment/combinator/ALL_BINARIES"
     LOGS="/home/import/Deployment/CAPTURE/ALL_LOGS"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"

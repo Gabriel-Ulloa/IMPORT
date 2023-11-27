@@ -12,7 +12,7 @@ function adbhoney(){
     ALL_IPs="$temp/All_IPs_adbhoney.txt"
     combinator="/home/import/Deployment/combinator"
     DOWNLOADS="/home/import/Deployment/week/$(date +%A)/CATCHES/adbhoney/downloads/*"
-    MALWARE="/home/import/Deployment/CAPTURE/ALL_BINARIES/"
+    MALWARE="/home/import/Deployment/combinator/ALL_BINARIES"
     LOGS="/home/import/Deployment/CAPTURE/ALL_LOGS"
     AIPS="All_IPs.txt"
     AHASHES="All_hashes.txt"

@@ -9,10 +9,11 @@ fi
 . ./rclone.sh
 
 settings(){
-
+    
+    yum install zip -y
     mv "dionaea.sh" "cowrie.sh" "adbhoney.sh" "decompressor.sh" "vt-cli.sh" "filter.sh" "vt" "upload.sh" /usr/local/bin/
     mv VxAPI/ /home/import/Deployment/
-    mv "config.py" /home/import/Deployment/VxAPI/ 
+    mv "config.py" "VxAPI.sh" /home/import/Deployment/VxAPI/ 
     cat /home/import/.rcron | tee -a /etc/crontab
     rm -rf /home/import/.rcron
 

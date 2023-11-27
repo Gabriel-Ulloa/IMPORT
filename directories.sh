@@ -28,13 +28,12 @@ fi
 
 my_folders(){
 
-    mkdir -p "/home/import/Deployment/CAPTURE/FILTERED_PCAPS" \
-             "/home/import/Deployment/CAPTURE/ALL_BINARIES" \
+    mkdir -p "/home/import/Deployment/combinator/ALL_BINARIES" \
+             "/home/import/Deployment/CAPTURE/FILTERED_PCAPS" \
              "/home/import/Deployment/CAPTURE/VT_HASHES" \
              "/home/import/Deployment/CAPTURE/VX_HASHES" \
              "/home/import/Deployment/CAPTURE/ALL_LOGS" \
              "/home/import/Deployment/sensor_catches" \
-             "/home/import/Deployment/combinator" \
              "/home/import/Deployment/export"
 
 }
