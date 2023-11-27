@@ -1,7 +1,7 @@
 #!/bin/bash
 filter_IP(){
 
-    IPS_FILE="/home/import/Deployment/CAPTURE/UNIQ_IPS.txt"
+    IPS_FILE="/home/import/Deployment/CAPTURE/uniq_IPs.txt"
     N_PCAP="/home/import/Deployment/CAPTURE/capture.pcap"
     FILTERED="/home/import/Deployment/CAPTURE/FILTERED_PCAPS/"
     

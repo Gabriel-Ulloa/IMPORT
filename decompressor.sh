@@ -29,15 +29,15 @@ uniq_data(){
     AHASHES="All_hashes.txt"
     combinator="/home/import/Deployment/combinator"
     CAPTURE="/home/import/Deployment/CAPTURE/"
-    U_HASH="UNIQ_HASHES.txt"
-    U_IP="UNIQ_IPS.txt"
+    U_HASH="uniq_hashes.txt"
+    U_IP="uniq_IPs.txt"
     O_PCAP="/home/import/Deployment/week/$(date +%A)/CATCHES/$(date +%A).pcap"
     N_PCAP="/home/import/Deployment/CAPTURE/capture.pcap"
 
     cat $combinator/$AHASHES |sort |uniq > $CAPTURE/$U_HASH
     cat $combinator/$AIPS |sort |uniq > $CAPTURE/$U_IP
 
-    mv $O_PCAP $N_PCAP
+    cp $O_PCAP $N_PCAP
 
 }
 
