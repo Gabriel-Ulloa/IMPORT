@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-. ./api.sh
-
 catches="/home/import/Deployment/sensor_catches"
 combinator="/home/import/Deployment/combinator"
 export="/home/import/Deployment/export"
