@@ -9,4 +9,5 @@ upload(){
     rclone copy "$compressed" "${rcname}:${dircloud}"
 
 }
+
 upload

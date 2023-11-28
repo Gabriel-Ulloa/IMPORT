@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 function virus_total(){
     file="/home/import/Deployment/CAPTURE/uniq_hashes.txt"
     VT_HASHES="/home/import/Deployment/CAPTURE/VT_HASHES"
@@ -13,3 +15,5 @@ function virus_total(){
         fi
     done < "$file"
 }
+
+virus_total

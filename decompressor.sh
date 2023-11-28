@@ -1,12 +1,5 @@
 #!/bin/bash
-. ./dionaea.sh
-. ./cowrie.sh
-. ./adbhoney.sh
-. ./filter.sh
-. ./vt-cli.sh
-. ./upload.sh
-
-
+#
 decompressing(){
 
     AIPS="All_IPs.txt"
@@ -22,7 +15,7 @@ decompressing(){
     touch "$combinator/$AIPS" "$combinator/$AHASHES"
 
 }
-
+#
 uniq_data(){
 
     AIPS="All_IPs.txt"
@@ -40,13 +33,13 @@ uniq_data(){
     cp $O_PCAP $N_PCAP
 
 }
-
+#
 function h_analysis(){
 
     su - import  -c /home/import/Deployment/VxAPI/VxAPI.sh
 
 }
-
+#
 function zipper(){
 
     binaries="/home/import/Deployment/combinator/ALL_BINARIES"
@@ -58,7 +51,7 @@ function zipper(){
     sleep 3
 
 }
-
+#
 function compressor(){
     capture="CAPTURE"
     parent_dir="/home/import/Deployment"
@@ -69,8 +62,7 @@ function compressor(){
     tar -cvz "$capture" > "$compressed"
     cd -
 }
-
-
+#
 function upload(){
 
     rcname="$(cat /usr/local/bin/rcname)"
@@ -80,7 +72,7 @@ function upload(){
     rclone copy $captures "${rcname}:${rcdir}"
 
 }
-
+#
 cleaner(){
 
     rm -rf /home/import/Deployment/CAPTURE/* \
@@ -93,20 +85,20 @@ cleaner(){
              "/home/import/Deployment/CAPTURE/ALL_LOGS"
 
 }
-
+#
 main(){
 
     decompressing
-    dionaea 
-    cowrie 
-    adbhoney
+    /usr/local/bin/dionaea.sh
+    /usr/local/bin/cowrie.sh 
+    /usr/local/bin/adbhoney.sh
     uniq_data
-    filter_IP
-    virus_total
+    /usr/local/bin/filter.sh
+    /usr/local/bin/vt-cli.sh
     h_analysis
     zipper
     compressor
-    upload
+    /usr/local/bin/upload.sh
     sleep 3
     cleaner
     

@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 filter_IP(){
 
     IPS_FILE="/home/import/Deployment/CAPTURE/uniq_IPs.txt"
@@ -21,3 +22,5 @@ filter_IP(){
     echo "Filtering completed"
 
 }
+
+filter_IP
