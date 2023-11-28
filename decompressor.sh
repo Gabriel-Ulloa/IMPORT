@@ -101,6 +101,7 @@ main(){
     h_analysis
     zipper
     compressor
+    sleep 2
     /usr/local/bin/upload.sh
     sleep 3
     cleaner
