@@ -10,7 +10,6 @@ decompressing(){
     combinator="/home/import/Deployment/combinator"
     MALWARE="/home/import/Deployment/combinator/ALL_BINARIES"
     
-    
     echo "decompressing catches..."
     tar -xzf "$catches" -C "$day"
     sleep 3
