@@ -50,7 +50,6 @@ main_rc(){
     rcinstall
     namex
     rconf
-    echo "Done!"
 
 }
 

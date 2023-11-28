@@ -64,6 +64,11 @@ main(){
     virus_API
     main_rc
     clean
+    echo "INSTALLED!"
+    sleep 3
+    echo "Rebooting..."
+    sleep 2
+    reboot
 
 }
 

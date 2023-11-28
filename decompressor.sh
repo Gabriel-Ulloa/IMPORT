@@ -8,11 +8,14 @@ decompressing(){
     catches="/home/import/Deployment/sensor_catches/$(date +%A)_catches.tar.gz"
     day="/home/import/Deployment/week/$(date +%A)/"
     combinator="/home/import/Deployment/combinator"
-
+    MALWARE="/home/import/Deployment/combinator/ALL_BINARIES"
+    
+    
     echo "decompressing catches..."
     tar -xzf "$catches" -C "$day"
     sleep 3
     touch "$combinator/$AIPS" "$combinator/$AHASHES"
+    mkdir -p $MALWARE
 
 }
 #
