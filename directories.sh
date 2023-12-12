@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 clean(){
-    cd .. && rm -rf IMPORTER/
+    cd .. && rm -rf IMPORT/
 }
 
 if [ ! -d "/home/import/SecurityOnion/" ]; then
