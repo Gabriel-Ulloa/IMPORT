@@ -7,7 +7,7 @@ function hybrid_analysis(){
     while IFS= read -r hash; do
         echo "Consulting..." && python $vxapi search_hash $hash > $VX_HASHES/VX_$(echo $hash).yaml && sleep .5
         counter=$((counter + 1))
-        #Verificar si se han revisado doscientas líneas
+        
         if ((counter % 200 == 0)); then
             echo "Waiting 1 minute..."
             sleep 60
