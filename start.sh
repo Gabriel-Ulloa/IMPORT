@@ -7,6 +7,6 @@ if [ $exit_status -eq 0 ]; then
     echo "directories.sh executed successfully."
     sudo bash installer.sh
 else
-    echo "installation failed to execute, exiting."
+    echo "Installation failed to execute, exiting."
     exit $exit_status
 fi
