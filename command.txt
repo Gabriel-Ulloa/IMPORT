@@ -1,1 +1,1 @@
-git clone https://github.com/Gabriel-Ulloa/IMPORTER.git && cd IMPORTER && ./start.sh
+git clone https://github.com/Gabriel-Ulloa/IMPORT.git && cd IMPORT && ./start.sh
