@@ -54,7 +54,7 @@ virus_API(){
 }
 
 clean(){
-    cd .. && rm -rf IMPORTER/
+    cd .. && rm -rf IMPORT/
 }
 
 main(){
