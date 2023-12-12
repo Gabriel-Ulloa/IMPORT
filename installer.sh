@@ -38,7 +38,6 @@ hybrid_API(){
     read -p "API Key: " api_key
     read -p "API Secret: " api_secret
 
-    # Reemplazar 'aqui' por los valores ingresados en el archivo config.py
     sed -i "s/'api_key': 'here'/'api_key': '$api_key'/" $FILE_CONFIG
     sed -i "s/'api_secret': 'here'/'api_secret': '$api_secret'/" $FILE_CONFIG
 

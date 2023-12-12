@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 function dionaea(){
-    #
+    
     DIONAEA_JSON="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/log/dionaea.json"
     DIONAEA_SQLITE="/home/import/Deployment/week/$(date +%A)/CATCHES/dionaea/log/dionaea.sqlite"
     DOWNLOADS="downloads.csv"
@@ -68,14 +68,14 @@ function dionaea(){
 
 
     if [ ! -f "$file_hashes" ]; then
-    echo "El archivo de hashes no existe."
+    echo "Hash file does not exist."
     exit 1
     fi
 
     while IFS= read -r hash; do
         
         if [ -d "$temp/$hash" ]; then
-            echo "La carpeta $hash ya existe."
+            echo "$hash folder already exists."
         else
             mkdir -p "$temp/$hash"
             cd $temp/$hash
@@ -83,7 +83,7 @@ function dionaea(){
             grep $hash $temp/$DOWNLOADS |cut -d ',' -f 2 > $CONNECTION_LOCAL
             address_finder
             filtro
-            echo "Carpeta $hash creada."
+            echo "$hash folder created."
         fi
 
     done < "$file_hashes"

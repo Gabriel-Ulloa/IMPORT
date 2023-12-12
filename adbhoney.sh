@@ -47,14 +47,14 @@ function adbhoney(){
     }
 
     if [ ! -f "$temp/$HASHES" ]; then
-    echo "El archivo de hashes no existe."
+    echo "Hash file does not exist."
     exit 1
     fi
 
     while IFS= read -r hash; do
         
         if [ -d "$temp/$hash" ]; then
-            echo "La carpeta $hash ya existe."
+            echo "$hash folder already exists."
         else
             mkdir -p "$temp/$hash"
             cd "$temp/$hash"
@@ -62,7 +62,7 @@ function adbhoney(){
             grep -i ".session.connect" $ADB_LOG |grep -oe "[src_ip]\+.[:_ ]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+" |grep -v "172.18.0.2" |cut -d "'" -f 3 | sort | uniq > "$IPS_FOUND"
             cat "$IPS_FOUND" >> "$ip_temp"
             filtro
-            echo "Carpeta $hash creada."
+            echo "$hash folder created."
         fi
 
     done < "$temp/$HASHES"

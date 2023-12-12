@@ -6,11 +6,11 @@ function virus_total(){
 
     counter=0
     while IFS= read -r hash; do
-        echo "consultando..." && /usr/local/bin/vt file $hash > $VT_HASHES/VT_$(echo $hash).yaml && sleep .5
+        echo "Consulting..." && /usr/local/bin/vt file $hash > $VT_HASHES/VT_$(echo $hash).yaml && sleep .5
         counter=$((counter + 1))
-        #Verificar si se han revisado doscientas líneas
+        
         if ((counter % 200 == 0)); then
-            echo "Esperando 1 minuto..."
+            echo "Waiting 1 minute..."
             sleep 60
         fi
     done < "$file"
