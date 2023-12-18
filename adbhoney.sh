@@ -59,7 +59,7 @@ function adbhoney(){
             mkdir -p "$temp/$hash"
             cd "$temp/$hash"
             echo "$hash" > "$h_temp"
-            grep -i ".session.connect" $ADB_LOG |grep -oe "[src_ip]\+.[:_ ]\+.[0-9]\+.[.]\+.[0-9]\+.[0-9]\+.[0-9]\+" |grep -v "172.18.0.2" |cut -d "'" -f 3 | sort | uniq > "$IPS_FOUND"
+            grep -i ".session.connect" $ADB_LOG |grep -oE '\b[0-9]{1,3}(\.[0-9]{1,3}){3}\b' |grep -v "172.18.0.2" |cut -d "'" -f 3 | sort | uniq > "$IPS_FOUND"
             cat "$IPS_FOUND" >> "$ip_temp"
             filtro
             echo "$hash folder created."
